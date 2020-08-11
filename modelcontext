@@ -1,0 +1,20 @@
+public class ModelContext : DbContext
+    {
+        public virtual DbSet<Student> Student { get; set; }
+        public virtual DbSet<Teacher> Teacher { get; set; }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseMySQL(@"server=localhost;port=3306;user=root;password=itsol@2020;database=mysqltestdb;");
+        }
+
+        //protected override void OnModelCreating(ModelBuilder modelBuilder)
+        //{
+        //    modelBuilder.Entity<Student>(entity =>
+        //    {
+        //        entity.HasKey(e => e.Id);
+        //        entity.ToTable("Student");
+        //    });
+
+        //}
+    }
